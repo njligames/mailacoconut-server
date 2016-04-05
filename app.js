@@ -46,7 +46,7 @@ function myStripe(json, response)
       });
 }
 
-app.post("/webhook", function(request, response) 
+app.post("/", function(request, response) 
 {
     var event_json = JSON.parse(request.body);
 
