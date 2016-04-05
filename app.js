@@ -51,7 +51,14 @@ app.post("/", function(request, response)
     //var event_json = JSON.parse(request.body);
 
     var json = request.body;
-    var metadata = JSON.parse(json.data.object.metadata);
+    var metadata = json.data.object.metadata;
+    var firstName = metadata.firstName;
+    var lastName = metadata.lastName;
+    var street = metadata.street;
+    var city = metadata.city;
+    var zip = metadata.zip;
+    var message = metadata.message;
+
 
     console.log(metadata);
     response.send(200);
