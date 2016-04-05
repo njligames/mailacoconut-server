@@ -50,7 +50,10 @@ app.post("/", function(request, response)
 {
     //var event_json = JSON.parse(request.body);
 
-    console.log(request.body);
+    var json = request.body;
+    var metadata = JSON.parse(json.data.object.metadata);
+
+    console.log(metadata);
     response.send(200);
 });
 
