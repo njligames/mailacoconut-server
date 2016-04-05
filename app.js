@@ -46,15 +46,13 @@ function myStripe(json, response)
       });
 }
 
-app.get("/webhook", function(request, response) {
-    //Retrieve the request's body and parse it as JSON
-     var event_json = JSON.parse(request.body);
-
-    // Do something with event_json
-    console.log(event_json);
+app.post("/webhook", function(request, response) 
+{
+    var event_json = JSON.parse(request.body);
 
     response.send(200);
 });
+
 app.post('/pay', function (req, res) {
 //var server = http.createServer(function(req, res) {
         // console.log(req);   // debug dump the request
