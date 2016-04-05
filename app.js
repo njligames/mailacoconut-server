@@ -48,8 +48,9 @@ function myStripe(json, response)
 
 app.post("/", function(request, response) 
 {
-    var event_json = JSON.parse(request.body);
+    //var event_json = JSON.parse(request.body);
 
+    console.log(request.body);
     response.send(200);
 });
 
