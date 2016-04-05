@@ -118,5 +118,5 @@ app.post('/pay', function (req, res) {
 //server.listen(5000, function() { console.log("Server Listening on http://localhost:5000/"); });
 app.listen(app.get('port'), function () {
     var port = server.address().port;
-    console.log('Example app listening on port ' + port '!');
+    console.log('Example app listening on port ' + port + '!');
 });
