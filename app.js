@@ -46,7 +46,7 @@ function myStripe(json, response)
       });
 }
 
-app.post("/", function(request, response) 
+app.post("/webhook", function(request, response) 
 {
     //var event_json = JSON.parse(request.body);
 
@@ -60,8 +60,23 @@ app.post("/", function(request, response)
     var message = metadata.message;
 
 
-    console.log(metadata);
-    response.send(200);
+    console.log(firstName);
+    console.log(lastName);
+    console.log(street);
+    console.log(city);
+    console.log(zip);
+    console.log(message);
+
+    if(json.type === 'charge.succeeded' && json.data.object.status === 'succeeded')
+    {
+        console.log("put into database and notify");
+        response.sendStatus(200);
+    }
+    else
+    {
+        console.log("nope");
+        response.sendStatus(200);
+    }
 });
 
 app.post('/pay', function (req, res) {
