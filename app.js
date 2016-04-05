@@ -12,6 +12,9 @@ app.use(bodyParser.json());
 
 //var http = require('http');
 
+var port = Number(process.env.PORT || 3000);
+
+app.set('port', port);
 
 function myStripe(json, response)
 {
@@ -110,7 +113,10 @@ app.post('/pay', function (req, res) {
 });
 
 
+
+
 //server.listen(5000, function() { console.log("Server Listening on http://localhost:5000/"); });
-app.listen(5000, function () {
-      console.log('Example app listening on port 5000!');
+app.listen(app.get('port'), function () {
+    var port = server.address().port;
+    console.log('Example app listening on port ' + port '!');
 });
