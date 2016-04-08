@@ -50,16 +50,34 @@ app.post("/webhook", function(request, response)
 {
     //var event_json = JSON.parse(request.body);
 
-    var json = request.body;
-    var metadata = json.data.object.metadata;
-    var firstName = metadata.firstName;
-    var lastName = metadata.lastName;
-    var street = metadata.street;
-    var city = metadata.city;
-    var zip = metadata.zip;
-    var message = metadata.message;
+    var firstName = "";
+    var lastName = "";
+    var street = "";
+    var city = "";
+    var zip = "";
+    var message = "";
+
+    if(request && request.body && request.body.data && request.body.data.object && request.body.data.object.metadata)
+    {
+        var metadata = request.body.data.object.metadata;
+
+        if(metadata.firstName)
+            firstName = metadata.firstName;
+        if(metadata.lastName)
+            lastName = metadata.lastName;
+        if(metadata.street)
+            street = metadata.street;
+        if(metadata.city)
+            city = metadata.city;
+        if(metadata.zip)
+            zip = metadata.zip;
+        if(metadata.message)
+            message = metadata.message;
+    }
 
 
+    console.log(request);
+    
     console.log(firstName);
     console.log(lastName);
     console.log(street);
