@@ -50,6 +50,7 @@ app.post("/webhook", function(request, response)
 {
     //var event_json = JSON.parse(request.body);
 
+    var name = "";
     var firstName = "";
     var lastName = "";
     var street = "";
@@ -61,6 +62,8 @@ app.post("/webhook", function(request, response)
     {
         var metadata = request.body.data.object.metadata;
 
+        if(metadata.name)
+            name = metadata.name
         if(metadata.firstName)
             firstName = metadata.firstName;
         if(metadata.lastName)
@@ -78,6 +81,7 @@ app.post("/webhook", function(request, response)
 
     console.log(request);
     
+    console.log(name);
     console.log(firstName);
     console.log(lastName);
     console.log(street);
