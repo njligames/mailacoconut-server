@@ -85,7 +85,7 @@ app.post("/webhook", function(request, response)
     console.log(zip);
     console.log(message);
 
-    if(json.type === 'charge.succeeded' && json.data.object.status === 'succeeded')
+    if(request.body.type === 'charge.succeeded' && request.body.data.object.status === 'succeeded')
     {
         console.log("put into database and notify");
         response.sendStatus(200);
