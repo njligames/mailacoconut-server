@@ -79,7 +79,7 @@ app.post("/webhook", function(request, response)
     }
 
 
-    console.log(request);
+    //console.log(request);
     
     console.log(name);
     console.log(firstName);
@@ -96,7 +96,8 @@ app.post("/webhook", function(request, response)
     }
     else
     {
-        console.log("nope");
+        console.log("request.body.type == " + request.body.type);
+        console.log("request.body.data.object.status == " + request.body.data.object.status);
         response.sendStatus(200);
     }
 });
