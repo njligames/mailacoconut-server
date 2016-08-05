@@ -19,6 +19,7 @@ app.set('port', port);
 function myStripe(json, response)
 {
     console.log(JSON.stringify(json));
+
     var jsonData = JSON.parse(json);
     var stripe = require("stripe")(
               "sk_test_fnX3lNRhVQZxgKW2VOB4KvFg"
